@@ -205,9 +205,9 @@ json `perse` করা সম্পন্য হলো। এবার আমর
             namelist += '<li class="singleli">';
             namelist += josonobj[i].name;
             namelist += '</li>';
-            namelist += '</br>
+            namelist += '</br>';
           }
-            namelist += '</ul>'
+            namelist += '</ul>';
             document.getElementById('employeeList').innerHTML = namelist;
       };
       //open a requiest
@@ -215,5 +215,6 @@ json `perse` করা সম্পন্য হলো। এবার আমর
       //send the request
       xhr.send();
 ```
+
 
 আমাদের কাজ শেষ। এবং এ পর্যন্ত জানলেই আপনি যেকোনো প্রজেক্ট হ্যান্ডেল করতে পারবেন।
