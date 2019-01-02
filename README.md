@@ -151,7 +151,7 @@ X = XML ( xml পড়ার দরকার নাই। পড়েন json (ajax 
   {
     "name" : "jhon Doe",
     "mail" : "jhondoe@gmail.com"
-  },
+  }
 
 ]
 ```
@@ -182,7 +182,7 @@ X = XML ( xml পড়ার দরকার নাই। পড়েন json (ajax 
       //create a calllback funtion
       xhr.onreadystatechange = function() {
         if (xhr.readyState === 4) {
-          var jsobj = JSON.perse(xhr.responseText);
+          var jsobj = JSON.parse(xhr.responseText);
         }
       };
       //open a requiest
@@ -190,30 +190,31 @@ X = XML ( xml পড়ার দরকার নাই। পড়েন json (ajax 
       //send the request
       xhr.send();
 ```
-json `perse` করা সম্পন্য হলো। এবার আমরা ডাটা নিয়ে কাজ করতে পারি। এখন এই ইনফরমেশন কিভাবে আমাদের ওয়েবপেজে আউটপুট দেবো সেটা দেখি।
+json `parse` করা সম্পন্য হলো। এবার আমরা ডাটা নিয়ে কাজ করতে পারি। এখন এই ইনফরমেশন কিভাবে আমাদের ওয়েবপেজে আউটপুট দেবো সেটা দেখি।
 
 ```javascript
-     //Create XHR object
-      var xhr = new XMLHttpRequest();
-      //create a calllback funtion
-      xhr.onreadystatechange = function() {
-        if (xhr.readyState === 4) {
-          var jsobj = JSON.perse(xhr.responseText);
-          var namelist = '<ul class="namelist">';
-          namelist += '<li class="name">';
-          for(var i = 0; i<jsonobj.length; i++) {
-            namelist += '<li class="singleli">';
-            namelist += josonobj[i].name;
-            namelist += '</li>';
-            namelist += '</br>';
-          }
-            namelist += '</ul>';
-            document.getElementById('employeeList').innerHTML = namelist;
-      };
-      //open a requiest
-      xhr.open('GET', 'data.json');
-      //send the request
-      xhr.send();
+//Create XHR object
+var xhr = new XMLHttpRequest();
+//create a calllback funtion
+xhr.onreadystatechange = function () {
+   if (xhr.readyState === 4) {
+       var jsonobj = JSON.parse(xhr.responseText);
+       var namelist = '<ul class="namelist">';
+       namelist += '<li class="name">';
+       for (var i = 0; i < jsonobj.length; i++) {
+           namelist += '<li class="singleli">';
+           namelist += jsonobj[i].name;
+           namelist += '</li>';
+           namelist += '</br>';
+       }
+       namelist += '</ul>';
+       document.getElementById('employeeList').innerHTML = namelist;
+   }
+};
+//open a requiest
+xhr.open('GET', 'data/data.json');
+//send the request
+xhr.send();
 ```
 
 
